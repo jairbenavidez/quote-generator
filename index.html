@@ -1,0 +1,67 @@
+<!DOCTYPE html>                                                                 
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Random Quote Generator</title>
+    <style>
+      body {
+        font-family: Georgia, serif;                                              
+        background: #1a1a2e;
+        color: #eee;                                                              
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;                                                                
+      }
+      .card {                                                                     
+        background: #16213e;
+        padding: 40px;
+        border-radius: 12px;
+        max-width: 600px;                                                         
+        text-align: center;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.4);                                   
+      }           
+      #quote { font-size: 1.4rem; margin-bottom: 20px; line-height: 1.6; }
+      #author { color: #a8b2d8; font-style: italic; margin-bottom: 30px; }        
+      button {                                                                    
+        background: #e94560;                                                      
+        color: white;                                                             
+        border: none;
+        padding: 12px 28px;
+        border-radius: 6px;                                                       
+        font-size: 1rem;
+        cursor: pointer;                                                          
+      }           
+      button:hover { background: #c73652; }                                       
+    </style>
+  </head>                                                                         
+  <body>          
+    <div class="card">
+      <p id="quote">"Press the button for a quote."</p>
+      <p id="author">— ?</p>                                                      
+      <button onclick="newQuote()">New Quote</button>                             
+    </div>                                                                        
+                                                                                  
+    <script>      
+      const quotes = [
+        { text: "The only way to do great work is to love what you do.", author:
+  "Steve Jobs" },                                                                 
+        { text: "In the middle of difficulty lies opportunity.", author: "Albert 
+  Einstein" },                                                                    
+        { text: "It does not matter how slowly you go as long as you do not 
+  stop.", author: "Confucius" },                                                  
+        { text: "Life is what happens when you're busy making other plans.",
+  author: "John Lennon" },                                                        
+        { text: "The future belongs to those who believe in the beauty of their 
+  dreams.", author: "Eleanor Roosevelt" }                                         
+      ];
+                                                                                  
+      function newQuote() {
+        const random = quotes[Math.floor(Math.random() * quotes.length)];
+        document.getElementById("quote").textContent = `"${random.text}"`;        
+        document.getElementById("author").textContent = `— ${random.author}`;
+      }                                                                           
+    </script>     
+  </body>
+  </html>
